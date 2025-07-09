@@ -29,14 +29,14 @@ function Footer() {
           {/* Column 3 */}
           <div>
             <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Contact Info</h4>
-            <p>Email: <a href="mailto:support@example.com" className="hover:text-blue-500">support@example.com</a></p>
-            <p>Phone: <a href="tel:+1234567890" className="hover:text-blue-500">+123-456-7890</a></p>
+            <p>Email: <a href="mailto: youloos477@gmail.com" className="hover:text-blue-500">youloos477@gmail.com</a></p>
+            <p>Phone: <a href="tel:+3257048768" className="hover:text-blue-500">+92 3257048768</a></p>
           </div>
         </div>
 
         <div className="text-center text-xs py-4 border-t dark:border-gray-700">
           <p className="text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} Mini LMS. All rights reserved.
+            © 2025 Mini LMS. All rights reserved.
           </p>
         </div>
       </footer>
