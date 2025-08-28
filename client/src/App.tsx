@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Feedback from "./pages/Feedback";
+// import Feedback from "./pages/Feedback";
 
 function AppContent() {
   const location = useLocation();
@@ -24,68 +24,72 @@ function AppContent() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        {/*
+<Route
+  path="/dashboard"
+  element={
+    <ProtectedRoute>
+      <Feedback />
+    </ProtectedRoute>
+  }
+/>
+*/}
+
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute>
-              <Feedback />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/main-dashboard"
-          element={
-            <ProtectedRoute>
+
+            // <ProtectedRoute>
               <Dashboard />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
         <Route
           path="/more-course"
           element={
-            <ProtectedRoute>
-              <Card />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <Card />
+            // </ProtectedRoute>
           }
         />
         <Route
           path="/about"
           element={
-            <ProtectedRoute>
-              <About />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <About />
+            //  </ProtectedRoute>
           }
         />
         <Route
           path="/contact"
           element={
-            <ProtectedRoute>
-              <Contact />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <Contact />
+            //  </ProtectedRoute>
           }
         />
         <Route
           path="/help"
           element={
-            <ProtectedRoute>
-              <Help />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <Help />
+            // </ProtectedRoute>
           }
         />
         <Route
           path="/"
           element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <Home />
+            // </ProtectedRoute>
           }
         />
         <Route
           path="*"
           element={
-            <ProtectedRoute>
-              <NotFound />
-            </ProtectedRoute>
+            //  <ProtectedRoute>
+            <NotFound />
+            // </ProtectedRoute>
           }
         />
       </Routes>
