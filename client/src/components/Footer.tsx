@@ -1,47 +1,90 @@
 import { Link } from "react-router-dom";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 function Footer() {
   return (
-    <>
-      <footer className="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-t dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-          {/* Column 1 */}
-          <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Quick Links</h4>
-            <ul className="space-y-1">
-              <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
-              <li><Link to="/about" className="hover:text-blue-500">About</Link></li>
-              <li><Link to="/contact" className="hover:text-blue-500">Contact</Link></li>
-              <li><Link to="/help" className="hover:text-blue-500">Help</Link></li>
-            </ul>
-          </div>
+    <footer className="bg-white border-t border-gray-200">
+      
+      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
 
-          {/* Column 2 */}
-          <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Courses</h4>
-            <ul className="space-y-1">
-              <li><Link to="/dashboard" className="hover:text-blue-500">Explore Dashboard</Link></li>
-              <li><Link to="/cards" className="hover:text-blue-500">All Courses</Link></li>
-              <li><Link to="/form" className="hover:text-blue-500">Enroll Now</Link></li>
-            </ul>
+        {/* Brand */}
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <img src="/logo2.png" alt="logo" className="h-10 w-10" />
+            <h2 className="text-xl font-semibold text-gray-900">FutureStack</h2>
           </div>
-
-          {/* Column 3 */}
-          <div>
-            <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Contact Info</h4>
-            <p>Email: <a href="mailto: youloos477@gmail.com" className="hover:text-blue-500">youloos477@gmail.com</a></p>
-            <p>Phone: <a href="tel:+3257048768" className="hover:text-blue-500">+92 3257048768</a></p>
-          </div>
-        </div>
-
-        <div className="text-center text-xs py-4 border-t dark:border-gray-700">
-          <p className="text-gray-500 dark:text-gray-400">
-            © 2025 Mini LMS. All rights reserved.
+          <p className="text-gray-600 text-sm leading-relaxed">
+            Build your future with modern tech skills. Learn, grow and explore
+            with our powerful learning platform.
           </p>
         </div>
-      </footer>
-    </>
-  )
+
+        {/* Quick Links */}
+        <div>
+          <h4 className="footer-title">Quick Links</h4>
+          <ul className="space-y-2">
+            <li><Link to="/" className="footer-link">Home</Link></li>
+            <li><Link to="/about" className="footer-link">About</Link></li>
+            <li><Link to="/contact" className="footer-link">Contact</Link></li>
+            <li><Link to="/help" className="footer-link">Help</Link></li>
+          </ul>
+        </div>
+
+        {/* Courses */}
+        <div>
+          <h4 className="footer-title">Courses</h4>
+          <ul className="space-y-2">
+            <li><Link to="/dashboard" className="footer-link">Dashboard</Link></li>
+            <li><Link to="/more-course" className="footer-link">All Courses</Link></li>
+            <li><Link to="/signup" className="footer-link">Get Started</Link></li>
+          </ul>
+        </div>
+
+        {/* Contact / Social */}
+        <div>
+          <h4 className="footer-title">Connect</h4>
+
+          <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+            <FiMail />
+            <a
+              href="mailto:mtanveerdev.33@gmail.com"
+              className="footer-link"
+            >
+              mtanveerdev.33@gmail.com
+            </a>
+          </div>
+
+          <div className="flex gap-4 mt-3">
+            <a
+              href="https://github.com/malik/tanveer"
+              target="_blank"
+              rel="noreferrer"
+              className="icon-link"
+            >
+              <FiGithub size={20} />
+            </a>
+
+            <a
+              href="https://linkedin.com/in/malik-tanveer-9a1b4b1b3/"
+              target="_blank"
+              rel="noreferrer"
+              className="icon-link"
+            >
+              <FiLinkedin size={20} />
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom */}
+      <div className="border-t border-gray-200 py-4 text-center">
+        <p className="text-sm text-gray-500">
+          © {new Date().getFullYear()} FutureStack. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

@@ -1,99 +1,81 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // Importing icons for mobile menu
+import { FiMenu, FiX } from "react-icons/fi";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // State to manage mobile menu visibility
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 left-0 w-full z-50 shadow-md h-15">
-      <nav className="flex items-center justify-between p-4 bg-white dark:bg-gray-900">
-        <div className="flex items-center">
-          <Link to="/" className="text-2xl font-bold text-gray-800 dark:text-white">
-            FutureStack
-          </Link>
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200 shadow-sm">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6">
+
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src="/logo2.png"
+            alt="logo"
+            className="h-16 w-16 object-contain"
+          />
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/about">About</Link>
+          <Link className="nav-link" to="/contact">Contact</Link>
+          <Link className="nav-link" to="/help">Help</Link>
         </div>
 
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-gray-700 dark:text-gray-300 focus:outline-none">
-            {isOpen ? (
-              <FiX className="h-6 w-6" />
-            ) : (
-              <FiMenu className="h-6 w-6" />
-            )}
-          </button>
-        </div>
-
-        <div className="hidden md:flex space-x-6 items-center">
-          <Link to="/" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors">
-            Home
-          </Link>
-          <Link to="/about" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors">
-            About
-          </Link>
-          <Link to="/contact" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors">
-            Contact
-          </Link>
-          <Link to="/help" className="text-lg text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors">
-            Help
-          </Link>
-        </div>
-
-        <div className="hidden md:flex items-center space-x-4">
-
+        {/* Right Side Button */}
+        <div className="hidden md:block">
           <Link
             to="/dashboard"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300"
+            className="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-5 py-2 rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
-            Explore Dashboard
+            Dashboard
           </Link>
         </div>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-800"
+        >
+          {isOpen ? <FiX size={26} /> : <FiMenu size={26} />}
+        </button>
       </nav>
 
-      {isOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-800 px-4 pt-2 pb-4 shadow-lg">
-          <Link
-            to="/"
-            className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-            onClick={toggleMenu}
-          >
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+        }`}
+      >
+        <div className="px-6 pb-5 bg-white border-t border-gray-200 shadow-lg">
+
+          <Link onClick={() => setIsOpen(false)} className="mobile-link" to="/">
             Home
           </Link>
-          <Link
-            to="/about"
-            className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-            onClick={toggleMenu}
-          >
+          <Link onClick={() => setIsOpen(false)} className="mobile-link" to="/about">
             About
           </Link>
-          <Link
-            to="/contact"
-            className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-            onClick={toggleMenu}
-          >
+          <Link onClick={() => setIsOpen(false)} className="mobile-link" to="/contact">
             Contact
           </Link>
-          <Link
-            to="/help"
-            className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-            onClick={toggleMenu}
-          >
+          <Link onClick={() => setIsOpen(false)} className="mobile-link" to="/help">
             Help
           </Link>
+
           <Link
             to="/dashboard"
-            className="mt-4 block bg-blue-600 text-white px-4 py-2 rounded text-center hover:bg-blue-700 transition-colors duration-300"
-            onClick={toggleMenu}
+            onClick={() => setIsOpen(false)}
+            className="mt-4 block text-center bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition"
           >
-            Explore Dashboard
+            Dashboard
           </Link>
         </div>
-      )}
-    </div>
+      </div>
+    </header>
   );
 }
 

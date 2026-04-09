@@ -2,7 +2,7 @@ import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
-// import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -15,84 +15,59 @@ import Footer from "./components/Footer";
 
 function AppContent() {
   const location = useLocation();
-  const hideLayout = location.pathname === "/login" || location.pathname === "/signup";
+  const hideLayout =
+    location.pathname === "/login" || location.pathname === "/signup";
 
   return (
     <>
       {!hideLayout && <Navbar />}
 
       <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/help" element={<Help />} />
+
+        {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        {/*
-<Route
-  path="/dashboard"
-  element={
-    <ProtectedRoute>
-      <Feedback />
-    </ProtectedRoute>
-  }
-/>
-*/}
 
+        {/* Protected Routes */}
         <Route
           path="/dashboard"
           element={
-
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <Dashboard />
-            // </ProtectedRoute>
+            </ProtectedRoute>
           }
         />
+
         <Route
           path="/more-course"
           element={
-            // <ProtectedRoute>
-            <Card />
-            // </ProtectedRoute>
+            <ProtectedRoute>
+              <Card />
+            </ProtectedRoute>
           }
         />
+
+        {/* Optional */}
+        {/*
         <Route
-          path="/about"
+          path="/feedback"
           element={
-            // <ProtectedRoute>
-            <About />
-            //  </ProtectedRoute>
+            <ProtectedRoute>
+              <Feedback />
+            </ProtectedRoute>
           }
         />
-        <Route
-          path="/contact"
-          element={
-            // <ProtectedRoute>
-            <Contact />
-            //  </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/help"
-          element={
-            // <ProtectedRoute>
-            <Help />
-            // </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/"
-          element={
-            // <ProtectedRoute>
-            <Home />
-            // </ProtectedRoute>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            //  <ProtectedRoute>
-            <NotFound />
-            // </ProtectedRoute>
-          }
-        />
+        */}
+
+        {/* 404 */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
+
       {!hideLayout && <Footer />}
     </>
   );

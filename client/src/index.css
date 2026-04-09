@@ -2,3 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.nav-link {
+  @apply text-gray-700 font-medium hover:text-blue-900 transition duration-300 relative;
+}
+
+.nav-link::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-900 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.mobile-link {
+  @apply block py-3 text-gray-800 font-medium hover:text-blue-900 transition;
+}
+
+.footer-title {
+  @apply text-lg font-semibold text-gray-900 mb-3;
+}
+
+.footer-link {
+  @apply text-gray-600 hover:text-blue-900 transition duration-300;
+}
+
+.icon-link {
+  @apply text-gray-600 hover:text-blue-900 transition transform hover:scale-110;
+}
