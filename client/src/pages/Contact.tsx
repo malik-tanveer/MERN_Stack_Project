@@ -1,155 +1,154 @@
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaQuestionCircle } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        form.current,
+        "YOUR_PUBLIC_KEY"
+      )
+      .then(
+        () => {
+          alert("Message sent successfully 🚀");
+          form.current.reset();
+        },
+        (error) => {
+          alert("Failed to send message ❌");
+        }
+      );
+  };
+
   return (
-    <>
-      <div className="min-h-screen bg-slate-900 font-inter text-slate-100 p-4 sm:p-6 lg:p-8">
-        {/* Header Section */}
-        <header className="bg-slate-800 shadow-md rounded-lg p-4 mb-6 flex items-center justify-between">
-          <h1 className="text-2xl sm:text-3xl font-bold text-teal-400">
-            Contact UniLearn LMS Support
-          </h1>
-        </header>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 px-6 md:px-20 py-16 space-y-16">
 
-        {/* Main Content Area */}
-        <main className="bg-slate-800 shadow-lg rounded-lg p-6 sm:p-8 lg:p-10">
+      {/* Header */}
+      <header className="text-center space-y-4">
+        <h1 className="text-5xl font-bold text-gray-900">
+          Contact <span className="text-blue-900">FutureStack</span>
+        </h1>
+        <p className="text-gray-600 text-lg">
+          Have questions or feedback? Reach out anytime.
+        </p>
+      </header>
 
-          {/* Introduction */}
-          <p className="mb-8 text-lg sm:text-xl text-slate-200 leading-relaxed text-center">
-            Have questions, feedback, or need assistance? We're here to help! Choose the contact method that works best for you.
-          </p>
+      {/* Contact Cards */}
+      <section className="grid md:grid-cols-3 gap-6">
 
-          {/* Contact Methods Section */}
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+        {/* Email */}
+        <div className="bg-white shadow-md rounded-xl p-6 text-center hover:shadow-xl transition">
+          <FaEnvelope className="text-blue-900 text-4xl mx-auto mb-3" />
+          <h3 className="text-xl font-semibold mb-2">Email</h3>
+          <a href="mailto:mtanveerdev.33@gmail.com" className="text-gray-600 hover:text-blue-900">
+            mtanveerdev.33@gmail.com
+          </a>
+        </div>
 
-            {/* Email Support Card */}
-            <div className="bg-slate-700 rounded-lg shadow-lg p-6 border border-slate-600 text-center hover:shadow-xl transition-shadow duration-300">
-              <FaEnvelope className="text-teal-400 text-5xl mx-auto mb-4" />
-              <h3 className="text-xl sm:text-2xl font-semibold text-teal-300 mb-3">Email Support</h3>
-              <p className="text-slate-200 mb-4 leading-relaxed">
-                For general inquiries, technical issues, or feedback, send us an email. We aim to respond within 24-48 business hours.
-              </p>
-              <a
-                href="mailto:support@unilearnlms.com"
-                className="inline-block bg-teal-600 text-white py-2 px-6 rounded-md font-semibold hover:bg-teal-700 transition-colors duration-300 shadow-md"
-              >
-                Send an Email
-              </a>
-            </div>
+        {/* GitHub */}
+        <div className="bg-white shadow-md rounded-xl p-6 text-center hover:shadow-xl transition">
+          <FaGithub className="text-blue-900 text-4xl mx-auto mb-3" />
+          <h3 className="text-xl font-semibold mb-2">GitHub</h3>
+          <a
+            href="https://github.com/malik/tanveer"
+            target="_blank"
+            className="text-gray-600 hover:text-blue-900"
+          >
+            github.com/malik/tanveer
+          </a>
+        </div>
 
-            {/* Phone Support Card (Optional) */}
-            <div className="bg-slate-700 rounded-lg shadow-lg p-6 border border-slate-600 text-center hover:shadow-xl transition-shadow duration-300">
-              <FaPhone className="text-teal-400 text-5xl mx-auto mb-4" />
-              <h3 className="text-xl sm:text-2xl font-semibold text-teal-300 mb-3">Phone Support</h3>
-              <p className="text-slate-200 mb-4 leading-relaxed">
-                For urgent matters, you can reach our support team during business hours.
-                <br />
-                <span className="font-bold">[Your Phone Number Here]</span>
-              </p>
-              <a
-                href="tel:[Your Phone Number Here]"
-                className="inline-block bg-teal-600 text-white py-2 px-6 rounded-md font-semibold hover:bg-teal-700 transition-colors duration-300 shadow-md"
-              >
-                Call Us
-              </a>
-            </div>
+        {/* LinkedIn */}
+        <div className="bg-white shadow-md rounded-xl p-6 text-center hover:shadow-xl transition">
+          <FaLinkedin className="text-blue-900 text-4xl mx-auto mb-3" />
+          <h3 className="text-xl font-semibold mb-2">LinkedIn</h3>
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-600 hover:text-blue-900"
+          >
+            Add your LinkedIn
+          </a>
+        </div>
 
-            {/* FAQ / Help Center Card */}
-            <div className="bg-slate-700 rounded-lg shadow-lg p-6 border border-slate-600 text-center hover:shadow-xl transition-shadow duration-300">
-              <FaQuestionCircle className="text-teal-400 text-5xl mx-auto mb-4" />
-              <h3 className="text-xl sm:text-2xl font-semibold text-teal-300 mb-3">Visit Our Help Center</h3>
-              <p className="text-slate-200 mb-4 leading-relaxed">
-                Find answers to common questions and detailed guides in our comprehensive Help Center.
-              </p>
-              {/* This link would ideally go to your Help.tsx page */}
-              <a
-                href="#" // Replace with actual link to your Help Page
-                className="inline-block bg-teal-600 text-white py-2 px-6 rounded-md font-semibold hover:bg-teal-700 transition-colors duration-300 shadow-md"
-              >
-                Go to Help Center
-              </a>
-            </div>
+      </section>
 
-          </section>
+      {/* Contact Form */}
+      <section className="bg-white shadow-lg rounded-xl p-8 max-w-3xl mx-auto">
+        <h2 className="text-2xl font-semibold text-center mb-6 text-blue-900">
+          Send Message
+        </h2>
 
-          {/* Contact Form Section */}
-          <section className="bg-slate-700 rounded-lg shadow-lg p-6 sm:p-8 lg:p-10 border border-slate-600">
-            <h2 className="text-xl sm:text-2xl font-semibold text-teal-400 mb-6 text-center">Send Us a Message</h2>
-            <form className="space-y-6 max-w-2xl mx-auto">
-              <div>
-                <label htmlFor="name" className="block text-slate-200 text-lg font-medium mb-2">Your Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full p-3 rounded-md bg-slate-600 border border-slate-500 text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  placeholder="Enter your full name"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-slate-200 text-lg font-medium mb-2">Your Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full p-3 rounded-md bg-slate-600 border border-slate-500 text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  placeholder="your.email@example.com"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="subject" className="block text-slate-200 text-lg font-medium mb-2">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  className="w-full p-3 rounded-md bg-slate-600 border border-slate-500 text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  placeholder="Briefly describe your inquiry"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-slate-200 text-lg font-medium mb-2">Your Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  className="w-full p-3 rounded-md bg-slate-600 border border-slate-500 text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 resize-y"
-                  placeholder="Type your detailed message here..."
-                  required
-                ></textarea>
-              </div>
-              <div className="text-center">
-                <button
-                  type="submit"
-                  className="bg-blue-700 text-white py-3 px-10 rounded-md font-bold text-lg hover:bg-blue-800 transition-colors duration-300 shadow-lg"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </section>
+        <form ref={form} onSubmit={sendEmail} className="space-y-5">
 
-          {/* Optional: Physical Address Section */}
-          <section className="mt-10 p-6 bg-slate-700 rounded-lg border border-slate-600 text-center">
-            <h2 className="text-xl sm:text-2xl font-semibold text-teal-400 mb-4">Our Location</h2>
-            <FaMapMarkerAlt className="text-teal-400 text-4xl mx-auto mb-3" />
-            <p className="text-slate-200 leading-relaxed">
-              [Your Company Name/UniLearn LMS Office]
-              <br />
-              [Street Address Line 1]
-              <br />
-              [City, State/Province, Zip/Postal Code]
-              <br />
-              [Country]
-            </p>
-          </section>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-900 outline-none"
+            required
+          />
 
-        </main>
-      </div>
-    </>
-  )
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-900 outline-none"
+            required
+          />
+
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-900 outline-none"
+            required
+          />
+
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-900 outline-none"
+            required
+          ></textarea>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-900 text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
+          >
+            Send Message 🚀
+          </button>
+        </form>
+      </section>
+
+      {/* Location */}
+      <section className="text-center space-y-4">
+        <h2 className="text-2xl font-semibold text-blue-900">Our Location</h2>
+        <p className="text-gray-600 flex justify-center items-center gap-2">
+          <FaMapMarkerAlt /> Karachi, Pakistan
+        </p>
+
+        {/* Google Map */}
+        <div className="w-full h-[350px] rounded-xl overflow-hidden shadow-md">
+          <iframe
+            title="Karachi Map"
+            src="https://www.google.com/maps?q=Karachi&output=embed"
+            className="w-full h-full border-0"
+            // allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
+    </div>
+  );
 }
 
 export default Contact;
