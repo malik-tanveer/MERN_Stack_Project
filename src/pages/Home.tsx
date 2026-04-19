@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { FaRocket, FaCheckCircle, FaYoutube, FaLock, FaUserShield, FaGlobe, FaLaptopCode, FaQuoteLeft, FaStar, FaUnlockAlt, FaEye, FaWpforms, FaSignInAlt } from "react-icons/fa";
+import { FaRocket, FaCheckCircle, FaYoutube, FaLock, FaUserShield, FaGlobe, FaLaptopCode } from "react-icons/fa";
 import { MdSchool } from "react-icons/md";
-import { SiTypescript, SiMongodb, SiFirebase, SiTailwindcss, SiGithub, SiReact, SiHtml5, SiJavascript, SiNodedotjs, SiPython, SiFigma } from "react-icons/si";
+import { SiTypescript, SiMongodb, SiFirebase, SiTailwindcss, SiGithub, SiReact, SiHtml5, SiJavascript, SiNodedotjs, SiPython } from "react-icons/si";
 
 const Home = () => {
 return (
