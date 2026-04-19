@@ -1,18 +1,24 @@
-# Common
-node_modules/
-.env
-.env.local
-.DS_Store
+# Logs
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Client (React + Vite)
-client/node_modules/
-client/dist/
-client/.env
+node_modules
+dist
+dist-ssr
+*.local
 
-# Server (Express + TS)
-server/node_modules/
-server/dist/
-server/build/
-server/.env
-server/*.tsbuildinfo
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
