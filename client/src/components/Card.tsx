@@ -317,48 +317,57 @@ const extractVideoId = (url: string): string => {
 
 const Card: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#0a192f] text-[#ccd6f6] px-6 py-10">
-      <h1 className="text-4xl font-bold text-center text-[#64ffda] mb-6">
-        Your Learning Dashboard
-      </h1>
+  <div className="bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-900 min-h-screen px-6 md:px-20 py-16">
 
-      <p className="text-center max-w-xl mx-auto text-gray-400 mb-10 text-lg">
+    {/* Header */}
+    <div className="text-center mb-12">
+      <h1 className="text-5xl font-bold">
+        Explore <span className="text-blue-900">All Courses</span>
+      </h1>
+      <p className="text-gray-600 mt-3 max-w-xl mx-auto">
         Click any thumbnail to watch the full video on YouTube.
       </p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {featuredCourses.map((course, i) => {
-          const videoId = extractVideoId(course.url);
-          const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-
-          return (
-            <a
-              key={i}
-              href={course.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#112240] border border-[#233554] rounded-lg shadow hover:shadow-lg transition overflow-hidden"
-            >
-              <img
-                src={thumbnail}
-                alt={course.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-lg font-semibold text-[#64ffda] mb-1">
-                  {course.title}
-                </h2>
-                <p className="text-sm text-gray-400 mb-1">By {course.creator}</p>
-                <p className="text-sm text-gray-300">{course.desc}</p>
-              </div>
-
-            </a>
-          );
-        })}
-
-      </div>
     </div>
-  );
+
+    {/* Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {featuredCourses.map((course, i) => {
+        const videoId = extractVideoId(course.url);
+        const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+        return (
+          <a
+            key={i}
+            href={course.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.02] transition duration-300 overflow-hidden"
+          >
+            <img
+              src={thumbnail}
+              alt={course.title}
+              className="w-full h-48 object-cover"
+            />
+
+            <div className="p-5">
+              <h2 className="text-lg font-semibold text-blue-900 mb-1">
+                {course.title}
+              </h2>
+
+              <p className="text-sm text-gray-500 mb-1">
+                By {course.creator}
+              </p>
+
+              <p className="text-sm text-gray-600">
+                {course.desc}
+              </p>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+);
 };
 
 export default Card;
