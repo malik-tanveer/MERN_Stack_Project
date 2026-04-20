@@ -25,7 +25,6 @@ function Footer() {
           <ul className="space-y-2">
             <li><Link to="/" className="footer-link">Home</Link></li>
             <li><Link to="/about" className="footer-link">About</Link></li>
-            <li><Link to="/contact" className="footer-link">Contact</Link></li>
             <li><Link to="/help" className="footer-link">Help</Link></li>
           </ul>
         </div>

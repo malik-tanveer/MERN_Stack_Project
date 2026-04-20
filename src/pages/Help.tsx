@@ -85,13 +85,6 @@ const Help = () => {
             <div className="space-y-4 text-gray-600">
 
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">Messaging System</h3>
-                <p>
-                  Use inbox/messages section to contact instructors or classmates.
-                </p>
-              </div>
-
-              <div>
                 <h3 className="font-semibold text-gray-800 mb-2">Emailing Instructor</h3>
                 <p>
                   Always use professional tone when emailing instructors.

@@ -22,7 +22,6 @@ function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <Link className="nav-link" to="/">Home</Link>
           <Link className="nav-link" to="/about">About</Link>
-          <Link className="nav-link" to="/contact">Contact</Link>
           <Link className="nav-link" to="/help">Help</Link>
         </div>
 
@@ -58,9 +57,6 @@ function Navbar() {
           </Link>
           <Link onClick={() => setIsOpen(false)} className="mobile-link" to="/about">
             About
-          </Link>
-          <Link onClick={() => setIsOpen(false)} className="mobile-link" to="/contact">
-            Contact
           </Link>
           <Link onClick={() => setIsOpen(false)} className="mobile-link" to="/help">
             Help
